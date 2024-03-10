@@ -26,6 +26,7 @@ class SearchAuthorByName(BaseTool):
         self.author = author
         assert self.results is not None
         ans = []
+        # print(self.results['eprint_url'])
         for it in islice(self.results, top_k):
             ans.append(str({
                 'name': it["name"],
@@ -185,6 +186,7 @@ class SearchSinglePaper(BaseTool):
         assert paper is not None
         self.results = [paper]
         ans = []
+        print(paper['eprint_url'])
         for it in islice(self.results, top_k):
             ans.append(str({
                 'title': it['bib']["title"],
